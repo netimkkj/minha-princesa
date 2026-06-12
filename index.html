@@ -244,9 +244,99 @@ hr {
   100% { transform: scale(1); }
 }
 
+
+
+
+  #intro{
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #c44569,
+        #6c5ce7
+    );
+
+    transition: 1s;
+}
+
+.intro-card{
+
+    text-align: center;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.12);
+
+    backdrop-filter: blur(15px);
+
+    color: white;
+
+    max-width: 500px;
+}
+
+.intro-card h1{
+    margin-bottom: 20px;
+}
+
+.intro-card button{
+
+    margin-top: 20px;
+
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    background: white;
+    color: #c44569;
+
+    transition: .3s;
+}
+
+.intro-card button:hover{
+    transform: scale(1.05);
+}
+
+#intro.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
 </style>
 </head>
 <body>
+
+  <div id="intro">
+
+    <div class="intro-card">
+
+        <h1>💜 Feliz Dia dos Namorados 💜</h1>
+
+        <p>
+            Antes de entrar, existe uma pequena surpresa para você...
+        </p>
+
+        <button id="entrarBtn">
+            Abrir Minha Surpresa ❤️
+        </button>
+
+    </div>
+
+</div>
 
 <div class="hearts"></div>
 
