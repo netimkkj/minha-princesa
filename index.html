@@ -122,8 +122,35 @@ body::before {
   
 /* ===== Slider ===== */
 
-.slider { width: 300px; height: 400px; margin: 0 auto; overflow: hidden; border-radius: 20px; position: relative; } .slides { display: flex; transition: transform 0.5s ease-in-out; width: max-content; } .slides img { width: 300px; height: 400px; object-fit: cover; border-radius: 20px; }
+.slider {
+    width: 320px;
+    height: 430px;
+    margin: 0 auto;
 
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    border: 3px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,.2),
+        0 0 40px rgba(255,105,180,.4);
+}
+
+.slides {
+    display: flex;
+    transition: transform .8s ease-in-out;
+}
+
+.slides img {
+    width: 320px;
+    height: 430px;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
 /* ===== Card ===== */
 
 .text-section {
@@ -279,6 +306,28 @@ for(let i = 0; i < 40; i++) {
   document.querySelector('.hearts').appendChild(heart);
 }
 
+
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
+
+let current = 0;
+
+setInterval(() => {
+
+    current++;
+
+    if(current >= totalSlides){
+        current = 0;
+    }
+
+    slides.style.transform =
+        `translateX(-${current * 320}px)`;
+
+}, 3500);
+
+
+
+  
 </script>
 
 </body>
