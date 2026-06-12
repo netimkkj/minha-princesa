@@ -1,11 +1,20 @@
+```html
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nosso Amor</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<title>Feliz Dia dos Namorados ❤️</title>
+
+<style>
+
 /* ===== Fundo Romântico ===== */
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -29,7 +38,38 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* ===== Brilho de fundo ===== */
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -150px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,.2),
+    transparent 70%
+  );
+
+  filter: blur(50px);
+  animation: glowMove 15s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes glowMove {
+  from {
+    transform: translate(0,0);
+  }
+  to {
+    transform: translate(300px,200px);
+  }
+}
+
 /* ===== Corações ===== */
+
 .hearts {
   position: fixed;
   inset: 0;
@@ -40,16 +80,17 @@ body {
 
 .heart {
   position: absolute;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,.8);
   animation: float 8s linear infinite;
   filter: drop-shadow(0 0 10px #ff69b4);
 }
 
 @keyframes float {
   from {
-    transform: translateY(100vh) scale(0.5);
+    transform: translateY(100vh) scale(.5);
     opacity: 1;
   }
+
   to {
     transform: translateY(-10vh) scale(1.5);
     opacity: 0;
@@ -57,53 +98,35 @@ body {
 }
 
 /* ===== Conteúdo ===== */
+
 .container {
   position: relative;
   z-index: 1;
   padding: 30px 15px;
 }
 
-/* ===== Card Principal ===== */
-.text-section {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 35px;
+/* ===== Slider ===== */
+
+.slider {
+  width: 340px;
+  height: 460px;
+
+  margin: 20px auto;
+
+  overflow: hidden;
   border-radius: 30px;
 
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(20px);
+  border: 4px solid rgba(255,255,255,.25);
 
   box-shadow:
-    0 8px 32px rgba(0,0,0,0.2),
-    0 0 30px rgba(255,105,180,0.4);
+    0 0 20px rgba(255,255,255,.2),
+    0 0 50px rgba(255,105,180,.5);
 
-  border: 1px solid rgba(255,255,255,0.2);
+  transition: .4s;
 }
 
-/* ===== Título ===== */
-.text-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-
-  text-shadow:
-    0 0 10px #ff69b4,
-    0 0 20px #ff69b4,
-    0 0 30px #ff69b4;
-}
-
-/* ===== Slider ===== */
-.slider {
-  width: 320px;
-  height: 430px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 25px;
-
-  box-shadow:
-    0 0 25px rgba(255,255,255,0.3),
-    0 0 40px rgba(255,105,180,0.5);
-
-  border: 3px solid rgba(255,255,255,0.3);
+.slider:hover {
+  transform: translateY(-8px);
 }
 
 .slides {
@@ -112,8 +135,8 @@ body {
 }
 
 .slides img {
-  width: 320px;
-  height: 430px;
+  width: 340px;
+  height: 460px;
   object-fit: cover;
   border-radius: 25px;
   transition: transform .5s ease;
@@ -123,14 +146,61 @@ body {
   transform: scale(1.05);
 }
 
+/* ===== Card ===== */
+
+.text-section {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 35px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.2),
+    0 0 30px rgba(255,105,180,.4);
+
+  border: 1px solid rgba(255,255,255,.2);
+
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Título ===== */
+
+.text-section h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+
+  text-shadow:
+    0 0 10px #ff69b4,
+    0 0 20px #ff69b4,
+    0 0 30px #ff69b4;
+}
+
 /* ===== Contador ===== */
+
 .contador {
   margin: 25px auto;
-  padding: 15px;
+  padding: 15px 25px;
 
   width: fit-content;
 
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,.15);
+
   border-radius: 20px;
 
   font-size: 1.2rem;
@@ -140,92 +210,99 @@ body {
 }
 
 /* ===== Texto ===== */
+
 .text-section p {
   line-height: 1.8;
   font-size: 1.05rem;
 }
 
-/* ===== Citação Final ===== */
-.frase-final {
-  margin-top: 30px;
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #ffe4f2;
+/* ===== Linha ===== */
+
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,.3);
+  margin: 30px 0;
 }
 
-/* ===== Coração Pulsando ===== */
+/* ===== Coração pulsando ===== */
+
 .love-icon {
-  font-size: 50px;
+  font-size: 55px;
+  margin-bottom: 15px;
   animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-  0% { transform: scale(1);}
-  50% { transform: scale(1.2);}
-  100% { transform: scale(1);}
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
-  </style>
+
+</style>
 </head>
 <body>
-  <div class="hearts"></div>
-  <div class="container">
-    <div class="spotify">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5XeFesFbtLpXzIVDNQP22n?utm_source=generator" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
 
-    <div class="slider">
-      <div class="slides" id="slides">
-        <img src="IMG_20250301_214419.jpg" alt="foto1">
-        <img src="IMG-20240923-WA0060(2).jpg" alt="foto2">
-        <img src="Screenshot_2025-03-13-11-44-00-374_com.miui.gallery (1).jpg" alt="foto3">
-      </div>
-    </div>
+<div class="hearts"></div>
 
-    <div class="text-section">
-      <h2>Hoje mais uma vez comemorando o nosso dia minha princesa 💜</h2>
-      <div class="contador" id="contador"></div>
-      <p style="margin-top: 20px; max-width: 400px; margin-inline: auto;">
-        
-HOJE É O NOSSO DIA MEU AMOOOOOOOOOOR
+<div class="container">
 
-      Eu te amo muito amor, mais um ano comemorando essa data que faz nos dois, uma só pessoa. São tantas coisas acontecendo ultimamente, que só mostra o quão verdadeiro
-      é o nosso sentimento um pelo outro, agradeço pela paciência (MESMO QUE POUCA KDSAKDSKA menina réa podi) e pelo carinho que construimos cada dia um pouco mais, e que 
-      continuemos construindo coisas lindas, cresçamos juntos, e sejamos exemplo para outras pessoas. Eu te amo minha princesa, EU te amo.
-        
-        <hr>
-
-        Meu amor, quero que saiba que estou aqui para você, para o que der e vier. Eu te amo meu amor.
-      </p>
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="IMG_20250301_214419.jpg" alt="foto1">
+      <img src="IMG-20240923-WA0060(2).jpg" alt="foto2">
+      <img src="Screenshot_2025-03-13-11-44-00-374_com.miui.gallery (1).jpg" alt="foto3">
     </div>
   </div>
 
-  <script>
-    // Slider automático
-    let currentSlide = 0;
-    const slides = document.getElementById("slides");
-    const totalSlides = slides.children.length;
-    slides.style.width = `${totalSlides * 300}px`;
+  <div class="text-section">
 
-    setInterval(() => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      slides.style.transform = `translateX(-${currentSlide * 300}px)`;
-    }, 4000);
+    <div class="love-icon">💖</div>
 
-    // Corações animados (com ❤)
-    function criarCoracoes() {
-      const heartsContainer = document.querySelector(".hearts");
-      for (let i = 0; i < 8; i++) {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.textContent = "❤";
-        heart.style.left = Math.random() * 100 + "%";
-        heart.style.fontSize = `${Math.random() * 20 + 20}px`;
-        heart.style.animationDuration = (Math.random() * 5 + 3) + "s";
-        heartsContainer.appendChild(heart);
-        setTimeout(() => heart.remove(), 8000);
-      }
-    }
-    setInterval(criarCoracoes, 1000);
-  </script>
+    <h2>Hoje mais uma vez comemorando o nosso dia minha princesa 💜</h2>
+
+    <div class="contador" id="contador"></div>
+
+    <p style="margin-top: 20px; max-width: 400px; margin-inline: auto;">
+
+      HOJE É O NOSSO DIA MEU AMOOOOOOOOOOR
+
+      <br><br>
+
+      Eu te amo muito amor, mais um ano comemorando essa data que faz nos dois, uma só pessoa. São tantas coisas acontecendo ultimamente, que só mostra o quão verdadeiro
+      é o nosso sentimento um pelo outro, agradeço pela paciência (MESMO QUE POUCA KDSAKDSKA menina réa podi) e pelo carinho que construimos cada dia um pouco mais, e que
+      continuemos construindo coisas lindas, cresçamos juntos, e sejamos exemplo para outras pessoas. Eu te amo minha princesa, EU te amo.
+
+      <hr>
+
+      Meu amor, quero que saiba que estou aqui para você, para o que der e vier. Eu te amo meu amor.
+
+    </p>
+
+  </div>
+
+</div>
+
+<script>
+
+/* Corações */
+
+for(let i = 0; i < 40; i++) {
+
+  const heart = document.createElement('div');
+
+  heart.className = 'heart';
+  heart.innerHTML = '💖';
+
+  heart.style.left = Math.random() * 100 + '%';
+  heart.style.fontSize = (20 + Math.random() * 25) + 'px';
+  heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+
+  document.querySelector('.hearts').appendChild(heart);
+}
+
+</script>
+
 </body>
 </html>
+```
