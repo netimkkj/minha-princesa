@@ -5,77 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nosso Amor</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f0f0f;
-      color: white;
-      text-align: center;
-      overflow-x: hidden;
-    }
+/* ===== Fundo Romântico ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(
+    -45deg,
+    #ff6b9d,
+    #c44569,
+    #6c5ce7,
+    #a29bfe
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
 
-    .hearts {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    .heart {
-      position: absolute;
-      font-size: 24px;
-      color: #ff69b4;
-      animation: float 6s linear infinite;
-    }
+/* ===== Corações ===== */
+.hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
 
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(0.5);
-        opacity: 0;
-      }
-    }
+.heart {
+  position: absolute;
+  color: rgba(255,255,255,0.8);
+  animation: float 8s linear infinite;
+  filter: drop-shadow(0 0 10px #ff69b4);
+}
 
-    .container {
-      position: relative;
-      z-index: 1;
-      padding: 40px 20px;
-    }
+@keyframes float {
+  from {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
 
-    .spotify {
-      margin-bottom: 30px;
-    }
+/* ===== Conteúdo ===== */
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 30px 15px;
+}
 
-    .slider {
-      width: 300px;
-      height: 400px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 20px;
-      position: relative;
-    }
+/* ===== Card Principal ===== */
+.text-section {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 35px;
+  border-radius: 30px;
 
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: max-content;
-    }
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
 
-    .slides img {
-      width: 300px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 20px;
-    }
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.2),
+    0 0 30px rgba(255,105,180,0.4);
 
-    .text-section {
-      margin-top: 30px;
-    }
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ===== Título ===== */
+.text-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+
+  text-shadow:
+    0 0 10px #ff69b4,
+    0 0 20px #ff69b4,
+    0 0 30px #ff69b4;
+}
+
+/* ===== Slider ===== */
+.slider {
+  width: 320px;
+  height: 430px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 25px;
+
+  box-shadow:
+    0 0 25px rgba(255,255,255,0.3),
+    0 0 40px rgba(255,105,180,0.5);
+
+  border: 3px solid rgba(255,255,255,0.3);
+}
+
+.slides {
+  display: flex;
+  transition: transform .6s ease;
+}
+
+.slides img {
+  width: 320px;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 25px;
+  transition: transform .5s ease;
+}
+
+.slides img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Contador ===== */
+.contador {
+  margin: 25px auto;
+  padding: 15px;
+
+  width: fit-content;
+
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  box-shadow: 0 0 20px rgba(255,105,180,.4);
+}
+
+/* ===== Texto ===== */
+.text-section p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* ===== Citação Final ===== */
+.frase-final {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #ffe4f2;
+}
+
+/* ===== Coração Pulsando ===== */
+.love-icon {
+  font-size: 50px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.2);}
+  100% { transform: scale(1);}
+}
   </style>
 </head>
 <body>
